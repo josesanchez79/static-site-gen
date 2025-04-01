@@ -18,5 +18,9 @@ class HTMLNode():
             prop_string += f' {prop}="{value}"'
         return prop_string
     
+    def __eq__(self, other):
+    # Check if other is an HTMLNode and has the same attributes
+        return (isinstance(other, HTMLNode) and self.tag == other.tag and self.value == other.value and self.children == other.children and self.props == other.props)
+
     def __repr__(self):
         return f"HTMLNode({self.tag}, {self.value}, {self.children}, {self.props})"
